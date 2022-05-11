@@ -5,41 +5,31 @@ param(
     [Parameter(Mandatory = $True)]
     [string]
     $servicePrincipal,
-
     [Parameter(Mandatory = $True)]
     [string]
     $servicePrincipalSecret,
-
     [Parameter(Mandatory = $True)]
     [string]
     $servicePrincipalTenantId,
-
     [Parameter(Mandatory = $True)]
     [string]
     $azureSubscriptionName,
-
     [Parameter(Mandatory = $True)]
     [string]
     $resourceGroupName,
-
     [Parameter(Mandatory = $True)]
     [string]
     $resourceGroupNameRegion,
-
-    [Parameter(Mandatory = $True)]  
+    [Parameter(Mandatory = $True)]
     [string]
     $serverName,
-
-    [Parameter(Mandatory = $True)]  
+    [Parameter(Mandatory = $True)]
     [string]
     $adminLogin,
-
-    [Parameter(Mandatory = $True)]  
+    [Parameter(Mandatory = $True)]
     [String]
     $adminPassword
 )
-
-
 #region Login
 # This logs into Azure with a Service Principal Account
 #
@@ -52,17 +42,14 @@ az login `
 Write-Output "Done"
 Write-Output ""
 #endregion
-
 #region Subscription
 #This sets the subscription the resources will be created in
-
 Write-Output "Setting default azure subscription..."
 az account set `
     --subscription $azureSubscriptionName
 Write-Output "Done"
 Write-Output ""
 #endregion
-
 #region Create Resource Group
 # This creates the resource group used to house the VM
 Write-Output "Creating resource group $resourceGroupName in region $resourceGroupNameRegion..."
@@ -72,7 +59,6 @@ az group create `
     Write-Output "Done creating resource group"
     Write-Output ""
  #endregion
-
 #region Create VM
 # Create a VM in the resource group
 Write-Output "Creating VM..."
@@ -89,4 +75,3 @@ catch {
     }
 Write-Output "Done creating VM"
 Write-Output ""
-#endregion
