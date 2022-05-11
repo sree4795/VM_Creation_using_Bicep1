@@ -1,4 +1,4 @@
-name: GitHub for IT Pro CI/CD Pipelines
+name: GitHub for IT Pro CI/CD Pipeline
 
 env:
   OUTPUT_PATH: ${{ github.workspace }}
