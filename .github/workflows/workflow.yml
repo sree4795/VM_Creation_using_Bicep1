@@ -9,7 +9,7 @@ jobs:
       
   # Deploy VM in Azure
   DeployVM:
-    runs-on: windows-latest
+    runs-on: [self-hosted]
 
     steps:
     # checkout code from repo
