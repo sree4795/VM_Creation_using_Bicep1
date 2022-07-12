@@ -20,21 +20,5 @@ jobs:
       run: |
         ls '${{ env.OUTPUT_PATH }}\IaC\AzCLI'
 
-    - name: provision virtual machine in azure
-      env:
-        RESOURCE_GROUP: vm_creation
-        RESOURCE_GROUP_REGION: West US 2
-        SERVER_NAME: githubactions
-        ADMIN_LOGIN: sree
-      run: >
-        powershell -command "& '${{ env.OUTPUT_PATH }}\IaC\AzCLI\vmcreation.ps1'" 
-        -servicePrincipal ${{ secrets.SERVICE_PRINCIPAL_APPID }}
-        -servicePrincipalSecret ${{ secrets.SERVICE_PRINCIPAL_SECRET }} 
-        -servicePrincipalTenantId ${{ secrets.SERVICE_PRINCIPAL_TENANTID }} 
-        -azureSubscriptionName ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        -resourceGroupName %RESOURCE_GROUP% 
-        -resourceGroupNameRegion %RESOURCE_GROUP_REGION% 
-        -serverName %SERVER_NAME% 
-        -adminLogin %ADMIN_LOGIN% 
-        -adminPassword ${{ secrets.ADMIN_PASSWORD }} 
+   
 
