@@ -1,3 +1,5 @@
+@description('Resource group for the Virtual Machine.')
+param resourceGroupName string = 'Demo'
 @description('Username for the Virtual Machine.')
 param adminUsername string = 'azadmin'
 
